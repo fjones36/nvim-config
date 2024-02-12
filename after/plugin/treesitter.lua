@@ -9,6 +9,8 @@ require'nvim-treesitter.configs'.setup {
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
 
+  indent = { enable = true },
+
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
@@ -21,3 +23,18 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+
+parser_config.lmql = {
+  install_info = {
+    url = "~/Project/tree-sitter-lmql", -- local path or git repo
+    files = {"src/parser.c", "src/scanner.c"}
+  },
+  filetype = "lmql"
+}
+require("nvim-treesitter.parsers").ft_to_lang("lmql")
+-- require'nvim-treesitter.install'.compilers = { "clang++" }
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = {"*.lmql"},
+  command = "set filetype=lmql",
+})
