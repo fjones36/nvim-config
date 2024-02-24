@@ -1,0 +1,17 @@
+{
+    "python.formatting.provider":"black",
+	"python.formatting.blackPath": "~/.local/bin/black",
+	"coc.preferences.formatOnSaveFiletypes": [
+		"python",
+		"json"
+	],
+    "diagnostic-languageserver.formatFiletypes": {
+      "python": ["black"],
+    },
+    "diagnostic-languageserver.formatters": {
+      "black": {
+        "command": "black",
+        "args": ["-q", "--line-length", "200", "-"]
+      }
+    }
+}
