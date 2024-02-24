@@ -1,6 +1,8 @@
 # nvim-config
 
-# Setup
+NeoVim and Tmux config.
+
+# NeoVim Setup
 
 Install [NeoVim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 
@@ -42,7 +44,9 @@ Install [black[(https://github.com/psf/black/releases/tag/24.2.0)
 
 ```
 mkdir -p ~/.config/nvim
-cp -r * ~/.config/nvim/
+cp init.lua ~/.config/nvim/
+cp -r ./after ~/.config/nvim/
+cp -r ./lua ~/.config/nvim/
 ```
 
 ## COC Configuration
@@ -54,6 +58,12 @@ cp -r * ~/.config/nvim/
 ```
 
 ### Configure Extensions
+
+```
+cp ./coc-settings.json ~/.config/nvim/
+```
+
+or run `:CocConfig` and use the following settings.
 
 ```
 {
@@ -74,3 +84,23 @@ cp -r * ~/.config/nvim/
     }
 }
 ```
+
+
+# Tmux Configuration
+
+Install [tpm](https://github.com/tmux-plugins/tpm)
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Install `.tmux.conf`
+
+```
+cp .tmux.conf ~/
+```
+
+Install Plugins
+
+`prefix` + `I`
+
