@@ -88,6 +88,11 @@ or run `:CocConfig` and use the following settings.
 
 # Tmux Configuration
 
+At top of `~/.bashrc` put:
+```
+export TERM=screen-256color
+```
+
 Install [tpm](https://github.com/tmux-plugins/tpm)
 
 ```
